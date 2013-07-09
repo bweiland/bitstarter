@@ -1,9 +1,10 @@
 var express = require('express');
+var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
 var msgBuffer = fs.readFileSync('index.html');
-var msgString = Buffer.toString(msgBuffer);
+var msgString = msgBuffer.toString();
 
 app.get('/', function(request, response) {
  response.send(msgString);
